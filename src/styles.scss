@@ -1,1 +1,26 @@
-/* You can add global styles to this file, and also import other style files */
+@font-face {
+  font-family: 'News';
+  src: url('assets/news.ttf');
+}
+
+@font-face {
+  font-family: 'News Bold';
+  src: url('assets/newsbold.ttf');
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: url('assets/stars-background.jpg') black no-repeat;
+  background-size: cover;
+  font-family: 'News', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'News Bold';
+  color: #fde600;
+}
