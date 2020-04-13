@@ -1,3 +1,5 @@
+@import 'app/styles/colors.scss';
+
 @font-face {
   font-family: 'News';
   src: url('assets/news.ttf');
@@ -12,7 +14,7 @@ html,
 body {
   margin: 0;
   padding: 0;
-  color: #fff;
+  color: $white;
 }
 
 body {
@@ -23,5 +25,5 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
   font-family: 'News Bold';
-  color: #fde600;
+  color: $yellow;
 }
