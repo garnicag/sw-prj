@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { SearchService } from '../../services/search.service';
 
 @Component({
@@ -6,7 +6,7 @@ import { SearchService } from '../../services/search.service';
   templateUrl: './planets.component.html',
   styleUrls: ['./planets.component.scss']
 })
-export class PlanetsComponent implements OnInit  {
+export class PlanetsComponent implements OnInit, AfterViewInit {
   protected planetsList: any[] = [];
   protected hasResults: boolean;
 
@@ -16,10 +16,14 @@ export class PlanetsComponent implements OnInit  {
     this.fetchAPIData();
   }
 
+  ngAfterViewInit() {
+    setTimeout(function(){console.log(this.planetsList)}, 5000);
+  }
+
   fetchAPIData() {
     return this.searchService.getData('hello', 'planets', 1).subscribe(
       result => {
-        this.planetsList = result.results,
+        this.planetsList = result,
         this.hasResults = Boolean(result.total_results)
       }
     );
