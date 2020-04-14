@@ -17,7 +17,7 @@ export class PlanetsComponent implements OnInit {
   }
 
   fetchAPIData() {
-    return this.searchService.getData('hello', 'planets', 1).subscribe(
+    return this.searchService.getData('hello', 'planets', 4).subscribe(
       result => {
         this.planetsList = result,
         this.hasResults = Boolean(result.total_results)

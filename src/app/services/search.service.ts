@@ -7,6 +7,7 @@ import { environment as env } from '../../environments/environment';
 export class SearchService {
   constructor(public http: HttpClient) {};
 
+  // Perform the HTTP requests through a proxy to avoid CORS issues
   getData(queryValue, path, id): Observable<any> {
     return this.http.get(`${env.swapiUrl}/${path}/${id}`);
   }
