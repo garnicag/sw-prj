@@ -7,8 +7,8 @@ import { SearchService } from '../../services/search.service';
   styleUrls: ['./planets.component.scss']
 })
 export class PlanetsComponent implements OnInit {
-  protected planetsList: any[] = [];
-  protected hasResults: boolean;
+  public planetsList;
+  public hasResults: boolean;
 
   constructor(public searchService: SearchService) {}
 
