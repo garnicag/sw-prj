@@ -26,7 +26,7 @@ export class PlanetsComponent implements OnInit {
     return this.searchService.getData('hello', 'planets', this.id).subscribe(
       result => {
         this.planetsList = result,
-        this.hasResults = Boolean(result.total_results);
+        this.hasResults = Boolean(result);
       }
     );
   }
