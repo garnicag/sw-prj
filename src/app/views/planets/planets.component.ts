@@ -8,7 +8,7 @@ import { SearchService } from '../../services/search.service';
   styleUrls: ['./planets.component.scss']
 })
 export class PlanetsComponent implements OnInit {
-  public planetsList;
+  public planetsList = [];
   public hasResults: boolean;
   private id;
 
@@ -23,12 +23,20 @@ export class PlanetsComponent implements OnInit {
   }
 
   fetchAPIData(page) {
-    return this.searchService.getData('', 'planets', null, page).subscribe(
+    return this.searchService.getList('planets', '').subscribe(
       result => {
-        this.planetsList = {...result.results, ...this.planetsList},
-        result.next ? this.fetchAPIData(result.next) : console.log('last-page');
-        // console.log(this.planetsList),
-        // this.hasResults = Boolean(result);
+        const totalPages = Math.ceil((result.count) / 10);
+        console.log(totalPages)
+        this.planetsList = result.results;
+
+        for (let i = 2; i <= totalPages; i++) {
+          this.searchService.getList('planets', i).subscribe(
+            planetsResult => {
+              this.planetsList = [...this.planetsList, ...planetsResult.results];
+              console.log(this.planetsList);
+            }
+          );
+        }
       }
     );
   }
