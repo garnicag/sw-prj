@@ -19,14 +19,16 @@ export class PlanetsComponent implements OnInit {
 
   ngOnInit(): void {
     this.id = this.route.snapshot.paramMap.get('id');
-    this.fetchAPIData();
+    this.fetchAPIData('');
   }
 
-  fetchAPIData() {
-    return this.searchService.getData('hello', 'planets', this.id).subscribe(
+  fetchAPIData(page) {
+    return this.searchService.getData('', 'planets', null, page).subscribe(
       result => {
-        this.planetsList = result,
-        this.hasResults = Boolean(result);
+        this.planetsList = {...result.results, ...this.planetsList},
+        result.next ? this.fetchAPIData(result.next) : console.log('last-page');
+        // console.log(this.planetsList),
+        // this.hasResults = Boolean(result);
       }
     );
   }

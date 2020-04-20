@@ -1,1 +1,5 @@
 Planets > {{ (planetsList)?.name }}
+
+<div class="results" *ngFor="let planet of planetsList?.results">
+  {{planet.name}}
+</div>
