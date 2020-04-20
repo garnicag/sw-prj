@@ -7,6 +7,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { SearchService } from './services/search.service';
 import { MoviesComponent } from './views/movies/movies.component';
 import { PlanetsComponent } from './views/planets/planets.component';
+import { PlanetComponent } from './views/planets/planet/planet.component';
 import { CharactersComponent } from './views/characters/characters.component';
 
 @NgModule({
@@ -14,7 +15,8 @@ import { CharactersComponent } from './views/characters/characters.component';
     AppComponent,
     MoviesComponent,
     PlanetsComponent,
-    CharactersComponent
+    CharactersComponent,
+    PlanetComponent
   ],
   imports: [
     BrowserModule,

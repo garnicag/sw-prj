@@ -10,6 +10,7 @@ import { SearchService } from '../../services/search.service';
 export class PlanetsComponent implements OnInit {
   public planetsList = [];
   public hasResults: boolean;
+  public planetsTerrains = [];
   private id;
 
   constructor(
@@ -23,17 +24,18 @@ export class PlanetsComponent implements OnInit {
   }
 
   fetchAPIData(page) {
-    return this.searchService.getList('planets', '').subscribe(
+    this.searchService.getList('planets', '').subscribe(
       result => {
         const totalPages = Math.ceil((result.count) / 10);
-        console.log(totalPages)
         this.planetsList = result.results;
 
         for (let i = 2; i <= totalPages; i++) {
           this.searchService.getList('planets', i).subscribe(
             planetsResult => {
               this.planetsList = [...this.planetsList, ...planetsResult.results];
-              console.log(this.planetsList);
+              this.planetsList.forEach(el => {
+                console.log(el.terrain);
+              });
             }
           );
         }
