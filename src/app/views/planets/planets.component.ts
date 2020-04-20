@@ -33,9 +33,6 @@ export class PlanetsComponent implements OnInit {
           this.searchService.getList('planets', i).subscribe(
             planetsResult => {
               this.planetsList = [...this.planetsList, ...planetsResult.results];
-              this.planetsList.forEach(el => {
-                console.log(el.terrain);
-              });
             }
           );
         }
