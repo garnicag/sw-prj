@@ -13,12 +13,13 @@
     height: 100px;
     display: block;
     border-radius: 50%;
-    background: radial-gradient(at top left, rgba(255,255,255,0) 0%, rgba(0,0,0,1) 100%), url('/assets/planet-texture.png');
+    background: url('/assets/planet-texture2.jpg');
     box-shadow: 0px 0px 8px 5px rgba(2, 236, 253, 0.1);
     mix-blend-mode: hard-light;
     position: absolute;
     top: 0;
     left: 0;
+    animation: planet-rotation 150s linear infinite;
   }
 
   &::after {
@@ -27,11 +28,20 @@
     height: 100px;
     display: block;
     border-radius: 50%;
-    background: radial-gradient(at top left, rgba(255,255,255,0) 0%, rgba(0,0,0,1) 100%);
-    mix-blend-mode: overlay;
+    background: radial-gradient(at top left, rgba(255,255,255,0) 0%, rgba(0,0,0,1) 100%), radial-gradient(at top left, rgba(255,255,255,0) 0%, rgba(0,0,0,1) 100%);
+    mix-blend-mode: hard-light;
     position: absolute;
     top: 0;
     left: 0;
+  }
+}
+
+@keyframes planet-rotation {
+  from {
+      background-position:1725px;
+  }
+  to {
+      background-position:575px;
   }
 }
 
