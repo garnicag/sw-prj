@@ -23,10 +23,9 @@ export class PlanetsComponent implements OnInit {
 
   ngOnInit(): void {
     // this.id = this.route.snapshot.paramMap.get('id') || 'alderaan';
+    // [routerLink]="['/planets', planet.name.toLowerCase()]"
     this.fetchAPIData('');
   }
-
-  // [routerLink]="['/planets', planet.name.toLowerCase()]"
 
   fetchAPIData(page): void {
     this.searchService.getList('planets', '').subscribe(
@@ -38,7 +37,7 @@ export class PlanetsComponent implements OnInit {
           this.searchService.getList('planets', i).subscribe(
             planetsResult => {
               this.planetsList = [...this.planetsList, ...planetsResult.results];
-              if (i === totalPages) { this.selectPlanet('alderaan'); console.log(this.selectedPlanet); }
+              if (i === totalPages) { this.selectPlanet('tatooine'); console.log(this.selectedPlanet); }
             }
           );
         }

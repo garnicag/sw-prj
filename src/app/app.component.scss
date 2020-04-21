@@ -38,11 +38,11 @@ nav {
     display: inline-block;
     margin: 0 0.5em;
     color: $white;
+  }
 
-    &.active {
-      transform: skewY(-10deg);
-      color: $yellow;
-    }
+  .active h2 {
+    transform: skewY(-10deg);
+    color: $yellow;
   }
 }
 
