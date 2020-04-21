@@ -17,6 +17,11 @@
       <span *ngFor="let person of selectedPlanetResidents; let i = index">
         {{ person.name }}<ng-container *ngIf="(i + 1) < selectedPlanetResidents.length">, </ng-container>
       </span>
+    </span><br>
+    <span><strong>Films: </strong>
+      <span *ngFor="let film of selectedPlanetFilms; let i = index">
+        {{ film.title }}<ng-container *ngIf="(i + 1) < selectedPlanetFilms.length">, </ng-container>
+      </span>
     </span>
   </div>
 </div>

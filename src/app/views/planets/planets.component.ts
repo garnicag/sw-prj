@@ -13,6 +13,7 @@ export class PlanetsComponent implements OnInit {
   public planetsTerrains: Array<any> = [];
   public selectedPlanet;
   public selectedPlanetResidents: Array<any> = [];
+  public selectedPlanetFilms: Array<any> = [];
   public id;
 
   constructor(
@@ -36,7 +37,6 @@ export class PlanetsComponent implements OnInit {
             planetsResult => {
               this.planetsList = [...this.planetsList, ...planetsResult.results];
               if (i === totalPages) { this.selectPlanet('tatooine'); console.log(this.selectedPlanet); }
-              // console.log(this.selectedPlanet);
             }
           );
         }
@@ -47,9 +47,15 @@ export class PlanetsComponent implements OnInit {
   getResidents(id): void {
     this.searchService.getDetails('people', id).subscribe(
       result => {
-        console.log(result.name);
         this.selectedPlanetResidents.push(result);
-        return result.name;
+      }
+    )
+  }
+
+  getFilms(id): void {
+    this.searchService.getDetails('films', id).subscribe(
+      result => {
+        this.selectedPlanetFilms.push(result);
       }
     )
   }
@@ -62,6 +68,10 @@ export class PlanetsComponent implements OnInit {
     this.selectedPlanet.residents.forEach(element => {
       const id = element.split('/');
       this.getResidents(id[id.length - 2]);
+    });
+    this.selectedPlanet.films.forEach(element => {
+      const id = element.split('/');
+      this.getFilms(id[id.length - 2]);
     });
   }
 }
