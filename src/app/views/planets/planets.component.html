@@ -1,3 +1,6 @@
-<div class="planet-result" *ngFor="let planet of planetsList">
-  <app-planet name="{{planet.name}}" terrain="{{planet.terrain}}"></app-planet>
+<div class="planet-result-wrapper">
+  <div class="planet-result" *ngFor="let planet of planetsList" [id]="planet.name.toLowerCase().split(' ').join('')">
+    <app-planet name="{{planet.name}}" terrain="{{planet.terrain}}"></app-planet>
+  </div>
 </div>
+<div class="planet-details">ss</div>

@@ -49,7 +49,7 @@ export class PlanetComponent implements OnInit{
     seas: '#205F87',
     sinkholes: '#2C251A',
     swamps: '#124437',
-    tundra: '#C47000',
+    tundra: '#9ADEFD',
     urban: '#2E3436',
     valleys: '#4C7C1F',
     vines: '#335D0B',

@@ -1,20 +1,23 @@
+$planet-width: 120px;
+$planet-height: 120px;
+
 .single-planet {
-  width: 100px;
-  height: 100px;
+  width: $planet-width;
+  height: $planet-height;
   position: relative;
   display: block;
   border-radius: 50%;
-  margin: 15px;
-
+  margin: 10px;
+  vertical-align: middle;
 
   &::before {
     content: '';
-    width: 100px;
-    height: 100px;
+    width: $planet-width;
+    height: $planet-height;
     display: block;
     border-radius: 50%;
     background: url('/assets/planet-texture2.jpg');
-    box-shadow: 0px 0px 8px 5px rgba(2, 236, 253, 0.1);
+    box-shadow: 0px 0px 5px 3px rgba(2, 236, 253, 0.1);
     mix-blend-mode: hard-light;
     position: absolute;
     top: 0;
@@ -24,8 +27,8 @@
 
   &::after {
     content: '';
-    width: 100px;
-    height: 100px;
+    width: $planet-width;
+    height: $planet-height;
     display: block;
     border-radius: 50%;
     background: radial-gradient(at top left, rgba(255,255,255,0) 0%, rgba(0,0,0,1) 100%), radial-gradient(at top left, rgba(255,255,255,0) 0%, rgba(0,0,0,1) 100%);
@@ -38,15 +41,17 @@
 
 @keyframes planet-rotation {
   from {
-      background-position:1725px 1725px;
+    background-position:1725px 1725px;
   }
   to {
-      background-position:575px 575px;
+    background-position:575px 575px;
   }
 }
 
 .planet-wrapper {
   display: inline-block;
   text-align: center;
-  margin: 15px 15px 25px;
+  margin: 15px;
+  font-family: "News Bold";
+  font-size: 1em;
 }
