@@ -8,9 +8,10 @@ import { SearchService } from '../../services/search.service';
   styleUrls: ['./planets.component.scss']
 })
 export class PlanetsComponent implements OnInit {
-  public planetsList = [];
+  public planetsList: Array<any> = [];
   public hasResults: boolean;
-  public planetsTerrains = [];
+  public planetsTerrains: Array<any> = [];
+  public selectedPlanet;
   private id;
 
   constructor(
@@ -33,10 +34,23 @@ export class PlanetsComponent implements OnInit {
           this.searchService.getList('planets', i).subscribe(
             planetsResult => {
               this.planetsList = [...this.planetsList, ...planetsResult.results];
+              this.selectPlanet('tatooine');
+              console.log(this.selectedPlanet);
             }
           );
         }
       }
     );
+  }
+
+  selectPlanet(planet) {
+    this.selectedPlanet = this.planetsList.filter((el) => {
+      if (el.name.toLowerCase() === planet.toLowerCase()) {
+        return true;
+      } else {
+        return false;
+      }
+    });
+    this.selectedPlanet = this.selectedPlanet[0];
   }
 }

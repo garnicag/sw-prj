@@ -10,6 +10,10 @@
   src: url('assets/newsbold.ttf');
 }
 
+* {
+  box-sizing: border-box;
+}
+
 html,
 body {
   margin: 0;
@@ -18,8 +22,9 @@ body {
 }
 
 body {
-  background: url('assets/stars-background.jpg') black no-repeat;
-  background-size: cover;
+  background: url('assets/stars-background.jpg') $black no-repeat;
+  background-size: 100%;
+  background-attachment: fixed;
   font-family: 'News', sans-serif;
 }
 

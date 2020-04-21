@@ -3,9 +3,10 @@
 header {
   width: 100%;
   margin: 0;
-  position: relative;
+  position: fixed;
   background: linear-gradient(to bottom, rgba(0,0,0,1) 50%,rgba(0,0,0,0) 100%);
   text-align: left;
+  z-index: 10;
 
   h1.main-title {
     background: url('/assets/logo.svg') no-repeat;
@@ -47,4 +48,6 @@ nav {
 
 section {
   text-align: center;
+  top: 175px;
+  position: relative;
 }
