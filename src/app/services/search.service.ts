@@ -24,7 +24,7 @@ export class SearchService {
     return this.http.get(`${env.swapiUrl}/${path}${queryParam}`);
   }
 
-  getDetails(id, path): Observable<any> {
+  getDetails(path, id): Observable<any> {
     return this.http.get(`${env.swapiUrl}/${path}/${id}`);
   }
 }

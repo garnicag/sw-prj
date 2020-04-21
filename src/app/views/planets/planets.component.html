@@ -1,16 +1,22 @@
 <div class="planet-result-wrapper">
   <div class="planet-result" *ngFor="let planet of planetsList" [id]="planet.name.toLowerCase().split(' ').join('')">
-    <app-planet name="{{ planet.name }}" terrain="{{ planet.terrain }}"></app-planet>
+    <app-planet name="{{ planet.name }}" terrain="{{ planet.terrain }}" [showTitle]="true"></app-planet>
   </div>
 </div>
+
 <div class="planet-details">
   <h3>{{ selectedPlanet?.name }}</h3>
   <div class="inner">
-    <span><strong>Climate: </strong>{{selectedPlanet?.climate}}</span><br>
-    <span><strong>Diameter: </strong>{{selectedPlanet?.diameter}} Km</span><br>
-    <span><strong>Gravity: </strong>{{selectedPlanet?.gravity}}</span><br>
-    <span><strong>Orbital period: </strong>{{selectedPlanet?.orbital_period}} days</span><br>
-    <span><strong>Rotation period: </strong>{{selectedPlanet?.rotation_period}} hours</span><br>
-    <span><strong>Population: </strong>{{selectedPlanet?.population}}</span>
+    <span><strong>Climate: </strong>{{ selectedPlanet?.climate }}</span><br>
+    <span><strong>Diameter: </strong>{{ selectedPlanet?.diameter }} Km</span><br>
+    <span><strong>Gravity: </strong>{{ selectedPlanet?.gravity }}</span><br>
+    <span><strong>Orbital period: </strong>{{ selectedPlanet?.orbital_period }} days</span><br>
+    <span><strong>Rotation period: </strong>{{ selectedPlanet?.rotation_period }} hours</span><br>
+    <span><strong>Population: </strong>{{ selectedPlanet?.population }}</span><br>
+    <span><strong>Residents: </strong>
+      <span *ngFor="let person of selectedPlanetResidents; let i = index">
+        {{ person.name }}<ng-container *ngIf="(i + 1) < selectedPlanetResidents.length">, </ng-container>
+      </span>
+    </span>
   </div>
 </div>

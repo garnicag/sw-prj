@@ -8,6 +8,8 @@ import { Component, Input, OnInit } from '@angular/core';
 export class PlanetComponent implements OnInit{
   @Input() name: string;
   @Input() terrain: string;
+  @Input() showTitle: boolean;
+  @Input() isBigger: boolean;
 
   public firstTerrain;
   public terrains = {
