@@ -1,26 +1,28 @@
 <div class="planet-result-wrapper">
-  <div class="planet-result" *ngFor="let planet of planetsList" [id]="planet.name.toLowerCase().split(' ').join('')">
-    <app-planet name="{{ planet.name }}" terrain="{{ planet.terrain }}" [showTitle]="true"></app-planet>
+  <div class="planet-result" *ngFor="let planet of planetsList" [id]="planet.name.toLowerCase().split(' ').join('')" [ngClass]="{'active': planet.name === selectedPlanet?.name}">
+    <a (click)="selectPlanet(planet.name)">
+      <app-planet name="{{planet.name}}" terrain="{{planet.terrain}}" [showTitle]="true"></app-planet>
+    </a>
   </div>
 </div>
 
 <div class="planet-details">
-  <h3>{{ selectedPlanet?.name }}</h3>
+  <h3>{{selectedPlanet?.name}}</h3>
   <div class="inner">
-    <span><strong>Climate: </strong>{{ selectedPlanet?.climate }}</span><br>
-    <span><strong>Diameter: </strong>{{ selectedPlanet?.diameter }} Km</span><br>
-    <span><strong>Gravity: </strong>{{ selectedPlanet?.gravity }}</span><br>
-    <span><strong>Orbital period: </strong>{{ selectedPlanet?.orbital_period }} days</span><br>
-    <span><strong>Rotation period: </strong>{{ selectedPlanet?.rotation_period }} hours</span><br>
-    <span><strong>Population: </strong>{{ selectedPlanet?.population }}</span><br>
-    <span><strong>Residents: </strong>
+    <span><strong>Climate: </strong>{{selectedPlanet?.climate}}</span><br>
+    <span><strong>Diameter: </strong>{{selectedPlanet?.diameter}} Km</span><br>
+    <span><strong>Gravity: </strong>{{selectedPlanet?.gravity}}</span><br>
+    <span><strong>Orbital period: </strong>{{selectedPlanet?.orbital_period}} days</span><br>
+    <span><strong>Rotation period: </strong>{{selectedPlanet?.rotation_period}} hours</span><br>
+    <span><strong>Population: </strong>{{selectedPlanet?.population}}</span><br>
+    <span *ngIf="selectedPlanetResidents.length"><strong>Residents: </strong>
       <span *ngFor="let person of selectedPlanetResidents; let i = index">
-        {{ person.name }}<ng-container *ngIf="(i + 1) < selectedPlanetResidents.length">, </ng-container>
-      </span>
-    </span><br>
-    <span><strong>Films: </strong>
+        {{person.name}}<ng-container *ngIf="(i + 1) < selectedPlanetResidents.length">, </ng-container>
+      </span><br>
+    </span>
+    <span *ngIf="selectedPlanetFilms.length"><strong>Films: </strong>
       <span *ngFor="let film of selectedPlanetFilms; let i = index">
-        {{ film.title }}<ng-container *ngIf="(i + 1) < selectedPlanetFilms.length">, </ng-container>
+        {{film.title}}<ng-container *ngIf="(i + 1) < selectedPlanetFilms.length">, </ng-container>
       </span>
     </span>
   </div>

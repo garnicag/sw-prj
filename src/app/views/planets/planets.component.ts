@@ -22,9 +22,11 @@ export class PlanetsComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.id = this.route.snapshot.paramMap.get('id');
+    // this.id = this.route.snapshot.paramMap.get('id') || 'alderaan';
     this.fetchAPIData('');
   }
+
+  // [routerLink]="['/planets', planet.name.toLowerCase()]"
 
   fetchAPIData(page): void {
     this.searchService.getList('planets', '').subscribe(
@@ -36,7 +38,7 @@ export class PlanetsComponent implements OnInit {
           this.searchService.getList('planets', i).subscribe(
             planetsResult => {
               this.planetsList = [...this.planetsList, ...planetsResult.results];
-              if (i === totalPages) { this.selectPlanet('tatooine'); console.log(this.selectedPlanet); }
+              if (i === totalPages) { this.selectPlanet('alderaan'); console.log(this.selectedPlanet); }
             }
           );
         }
@@ -49,7 +51,7 @@ export class PlanetsComponent implements OnInit {
       result => {
         this.selectedPlanetResidents.push(result);
       }
-    )
+    );
   }
 
   getFilms(id): void {
@@ -57,18 +59,23 @@ export class PlanetsComponent implements OnInit {
       result => {
         this.selectedPlanetFilms.push(result);
       }
-    )
+    );
   }
 
   selectPlanet(planet): void {
+    this.selectedPlanetResidents = [];
+    this.selectedPlanetFilms = [];
+
     this.selectedPlanet = this.planetsList.filter((el) => {
       if (el.name.toLowerCase() === planet.toLowerCase()) { return true; }
     });
     this.selectedPlanet = this.selectedPlanet[0];
+
     this.selectedPlanet.residents.forEach(element => {
       const id = element.split('/');
       this.getResidents(id[id.length - 2]);
     });
+
     this.selectedPlanet.films.forEach(element => {
       const id = element.split('/');
       this.getFilms(id[id.length - 2]);
