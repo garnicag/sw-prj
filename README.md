@@ -1,8 +1,11 @@
 # Death Star Database App
 
 Politécnico Grancolombiano
+
 Ingeniería de Software
+
 Proyecto de Front-End
+
 *Gabriel Garnica*
 
 ## Ejecución
