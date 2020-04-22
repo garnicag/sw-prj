@@ -1,0 +1,19 @@
+$poster-width: 200px;
+$poster-height: 275px;
+
+.single-movie {
+  width: $poster-width;
+  height: $poster-height;
+  position: relative;
+  display: block;
+  margin: 10px;
+  background-size: cover;
+}
+
+.movie-wrapper {
+  display: inline-block;
+  text-align: center;
+  margin: 15px;
+  font-family: "News Bold";
+  font-size: 1em;
+}

@@ -37,7 +37,7 @@ export class PlanetsComponent implements OnInit {
           this.searchService.getList('planets', i).subscribe(
             planetsResult => {
               this.planetsList = [...this.planetsList, ...planetsResult.results];
-              if (i === totalPages) { this.selectPlanet('tatooine'); console.log(this.selectedPlanet); }
+              if (i === totalPages) { this.selectPlanet('tatooine'); }
             }
           );
         }

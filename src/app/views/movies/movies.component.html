@@ -1,1 +1,17 @@
-Movies
+<div class="movies-result-wrapper">
+  <div class="movies-result" *ngFor="let movie of moviesList" [id]="movie.title.toLowerCase().split(' ').join('')"
+    [ngClass]="{'active': movie.title === selectedMovie?.title}">
+    <a (click)="selectMovie(movie.title)">
+      <app-movie title="{{movie.title}}"></app-movie>
+    </a>
+  </div>
+</div>
+
+<div class="movies-details">
+  <h3>{{selectedMovie?.title}}</h3>
+  <div class="inner">
+    <span><strong>Director: </strong>{{selectedMovie?.director}}</span><br>
+    <span><strong>Producers: </strong>{{selectedMovie?.producer}}</span><br>
+    <span><strong>Release date: </strong>{{selectedMovie?.release_date}}</span><br>
+  </div>
+</div>
