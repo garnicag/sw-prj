@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { SearchService } from '../../services/search.service';
+import { GetService } from '../../functions/get.service';
 
 @Component({
   selector: 'app-characters',
@@ -8,21 +9,23 @@ import { SearchService } from '../../services/search.service';
   styleUrls: ['./characters.component.scss']
 })
 export class CharactersComponent implements OnInit {
-  public charactersList: Array<any> = [];
+  public charactersList;
   public hasResults: boolean;
   public selectedCharacter;
   public id;
 
   constructor(
     public searchService: SearchService,
+    private getService: GetService,
     private route: ActivatedRoute
   ) {}
 
   ngOnInit(): void {
-    this.fetchAPIData('');
+    // this.fetchAPIData();
+    this.charactersList = this.getService.allElements('people');
   }
 
-  fetchAPIData(page): void {
+  fetchAPIData(): void {
     this.searchService.getList('people', '').subscribe(
       result => {
         const totalPages = Math.ceil((result.count) / 10);
@@ -46,5 +49,11 @@ export class CharactersComponent implements OnInit {
     });
     this.selectedCharacter = this.selectedCharacter[0];
     console.log(this.selectedCharacter);
+  }
+
+  characterID(url): number {
+    console.log(url);
+    const id = url.split('/');
+    return id[id.length - 2];
   }
 }

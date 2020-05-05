@@ -39,6 +39,5 @@ export class MoviesComponent implements OnInit {
       if (el.title.toLowerCase() === movie.toLowerCase()) { return true; }
     });
     this.selectedMovie = this.selectedMovie[0];
-    console.log(this.selectedMovie);
   }
 }

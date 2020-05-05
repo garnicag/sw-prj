@@ -1,5 +1,7 @@
 Characters
 
 <div class="movies-result" *ngFor="let character of charactersList">
-  "{{character.name}}"
+  <div>
+    {{character.name}} {{characterID(character.url)}}
+  </div>
 </div>

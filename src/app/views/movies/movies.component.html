@@ -1,8 +1,7 @@
 <div class="movies-result-wrapper">
-  <div class="movies-result" *ngFor="let movie of moviesList" [id]="movie.title.toLowerCase().split(' ').join('')"
-    [ngClass]="{'active': movie.title === selectedMovie?.title}">
+  <div class="movies-result" *ngFor="let movie of moviesList" [ngClass]="{'active': movie.title === selectedMovie?.title}">
     <a (click)="selectMovie(movie.title)">
-      <app-movie title="{{movie.title}}"></app-movie>
+      <app-movie title="{{movie.title}}" url="{{movie.url}}"></app-movie>
     </a>
   </div>
 </div>
