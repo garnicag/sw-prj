@@ -15,7 +15,6 @@ export class CharacterComponent implements OnInit{
   }
 
   characterID(url): number {
-    console.log(url);
     const id = url.split('/');
     return id[id.length - 2];
   }

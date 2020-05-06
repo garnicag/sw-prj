@@ -7,7 +7,6 @@ export class GetService {
   constructor(public searchService: SearchService) { }
 
   id(url: any): number {
-    console.log(url);
     const id = url.split('/');
     return id[id.length - 2];
   }
