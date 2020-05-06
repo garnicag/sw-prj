@@ -13,6 +13,7 @@ import { PlanetComponent } from './views/planets/planet/planet.component';
 import { CharactersComponent } from './views/characters/characters.component';
 import { CharacterComponent } from './views/characters/character/character.component';
 import { ShipsComponent } from './views/ships/ships.component';
+import { ShipComponent } from './views/ships/ship/ship.component';
 import { SpeciesComponent } from './views/species/species.component';
 import { SpecieComponent } from './views/species/specie/specie.component';
 
@@ -26,6 +27,7 @@ import { SpecieComponent } from './views/species/specie/specie.component';
     CharactersComponent,
     CharacterComponent,
     ShipsComponent,
+    ShipComponent,
     SpeciesComponent,
     SpecieComponent
   ],

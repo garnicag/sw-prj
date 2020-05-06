@@ -1,1 +1,54 @@
-Ships
+<div class="ships-result-wrapper">
+  <div class="ships-result" *ngFor="let ship of shipsList" [ngClass]="{'active': ship.name === selectedShip?.name}">
+    <a (click)="selectShip(ship.name)">
+      <app-ship title="{{ship.name}}" url="{{ship.url}}"></app-ship>
+    </a>
+  </div>
+</div>
+  <!-- 
+  MGLT: "100"
+  cargo_capacity: "110"
+  consumables: "1 week"
+  cost_in_credits: "149999"
+  created: "2014-12-12T11:19:05.340000Z"
+  crew: "1"
+  edited: "2014-12-20T21:23:49.886000Z"
+  films: (3) ["https://swapi.py4e.com/api/films/1/", "https://swapi.py4e.com/api/films/2/", "https://swapi.py4e.com/api/films/3/"]
+  hyperdrive_rating: "1.0"
+  length: "12.5"
+  manufacturer: "Incom Corporation"
+  max_atmosphering_speed: "1050"
+  model: "T-65 X-wing"
+  name: "X-wing"
+  passengers: "0"
+  pilots: (4) ["https://swapi.py4e.com/api/people/1/", "https://swapi.py4e.com/api/people/9/", "https://swapi.py4e.com/api/people/18/", "https://swapi.py4e.com/api/people/19/"]
+  starship_class: "Starfighter"
+  url: "https://swapi.py4e.com/api/starships/12/"
+ -->
+<div class="ships-details">
+  <h3>{{selectedShip?.name}}</h3>
+  <div class="inner">
+    <span><strong>Model: </strong>{{selectedShip?.model}}</span><br>
+    <span><strong>Starship class: </strong>{{selectedShip?.starship_class}}</span><br>
+    <span><strong>Speed: </strong>{{selectedShip?.MGLT}} MGLT</span><br>
+    <span><strong>Cargo capacity: </strong>{{selectedShip?.cargo_capacity}} Kg</span><br>
+    <span><strong>Consumables: </strong>{{selectedShip?.consumables}}</span><br>
+    <span><strong>Crew: </strong>{{selectedShip?.crew}}</span><br>
+    <span><strong>Passengers: </strong>{{selectedShip?.passengers}}</span><br>
+    <span><strong>Cost: </strong>{{selectedShip?.cost_in_credits}} Credits</span><br>
+    <span><strong>Hyperdrive rating: </strong>{{selectedShip?.hyperdrive_rating}}</span><br>
+    <span><strong>Length: </strong>{{selectedShip?.length}} m</span><br>
+    <span><strong>Manufacturer: </strong>{{selectedShip?.manufacturer}}</span><br>
+    <span><strong>Max atmosphering speed: </strong>{{selectedShip?.max_atmosphering_speed}} Km/h</span><br>
+    <span *ngIf="selectedShipPeople.length"><strong>Pilots: </strong>
+      <span *ngFor="let person of selectedShipPeople; let i = index">
+        {{person.name}}<ng-container *ngIf="(i + 1) < selectedShipPeople.length">, </ng-container>
+      </span><br>
+    </span>
+    <span *ngIf="selectedShipFilms.length"><strong>Films: </strong>
+      <span *ngFor="let film of selectedShipFilms; let i = index">
+        {{film.title}}<ng-container *ngIf="(i + 1) < selectedShipFilms.length">, </ng-container>
+      </span><br>
+    </span>
+  </div>
+</div>
