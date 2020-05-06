@@ -14,12 +14,28 @@
     <span><strong>Gender: </strong>{{selectedCharacter?.gender}}</span><br>
     <span><strong>Hair color: </strong>{{selectedCharacter?.hair_color}}</span><br>
     <span><strong>Height: </strong>{{selectedCharacter?.height}} cm</span><br>
-    <span><strong>Homeworld: </strong>{{selectedCharacter?.homeworld}}</span><br>
+    <span><strong>Homeworld: </strong>{{selectedCharacterHomeworld}}</span><br>
     <span><strong>Mass: </strong>{{selectedCharacter?.mass}} Kg</span><br>
     <span><strong>Skin color: </strong>{{selectedCharacter?.skin_color}}</span><br>
-    <span><strong>Species: </strong>{{selectedCharacter?.species}}</span><br>
-    <span><strong>Starships: </strong>{{selectedCharacter?.starships}}</span><br>
-    <span><strong>Vehicles: </strong>{{selectedCharacter?.vehicles}}</span><br>
-    <span><strong>Films: </strong>{{selectedCharacter?.films}}</span>
+    <span *ngIf="selectedCharacterSpecies.length"><strong>Species: </strong>
+      <span *ngFor="let species of selectedCharacterSpecies; let i = index">
+        {{species.name}}<ng-container *ngIf="(i + 1) < selectedCharacterSpecies.length">, </ng-container>
+      </span><br>
+    </span>
+    <span *ngIf="selectedCharacterStarships.length"><strong>Starships: </strong>
+      <span *ngFor="let starship of selectedCharacterStarships; let i = index">
+        {{starship.name}}<ng-container *ngIf="(i + 1) < selectedCharacterStarships.length">, </ng-container>
+      </span><br>
+    </span>
+    <span *ngIf="selectedCharacterVehicles.length"><strong>Vehicles: </strong>
+      <span *ngFor="let vehicle of selectedCharacterVehicles; let i = index">
+        {{vehicle.name}}<ng-container *ngIf="(i + 1) < selectedCharacterVehicles.length">, </ng-container>
+      </span><br>
+    </span>
+    <span *ngIf="selectedCharacterFilms.length"><strong>Films: </strong>
+      <span *ngFor="let film of selectedCharacterFilms; let i = index">
+        {{film.title}}<ng-container *ngIf="(i + 1) < selectedCharacterFilms.length">, </ng-container>
+      </span><br>
+    </span>
   </div>
 </div>
