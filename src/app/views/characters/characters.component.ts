@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { SearchService } from '../../services/search.service';
 import { GetService } from '../../services/get.service';
-import { element } from 'protractor';
 
 @Component({
   selector: 'app-characters',
@@ -48,12 +47,6 @@ export class CharactersComponent implements OnInit {
     );
   }
 
-  // homeworld
-  // species
-  // starships
-  // vehicles
-  // films
-
   selectCharacter(character): void {
     this.selectedCharacterHomeworld = [];
     this.selectedCharacterSpecies = [];
@@ -89,8 +82,6 @@ export class CharactersComponent implements OnInit {
       const id = element.split('/');
       this.getFilms(id[id.length - 2]);
     });
-
-    console.log(this.selectedCharacter, this.id);
   }
 
   getHomeworld(url): void {
@@ -99,7 +90,6 @@ export class CharactersComponent implements OnInit {
 
     this.searchService.getDetails('planets', id).subscribe(
       result => {
-        console.log('======>>>>', result.name);
         this.selectedCharacterHomeworld = result.name;
       }
     );
@@ -138,7 +128,6 @@ export class CharactersComponent implements OnInit {
   }
 
   characterID(url): number {
-    console.log(url);
     const id = url.split('/');
     return id[id.length - 2];
   }

@@ -14,6 +14,7 @@ import { CharactersComponent } from './views/characters/characters.component';
 import { CharacterComponent } from './views/characters/character/character.component';
 import { ShipsComponent } from './views/ships/ships.component';
 import { SpeciesComponent } from './views/species/species.component';
+import { SpecieComponent } from './views/species/specie/specie.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { SpeciesComponent } from './views/species/species.component';
     CharactersComponent,
     CharacterComponent,
     ShipsComponent,
-    SpeciesComponent
+    SpeciesComponent,
+    SpecieComponent
   ],
   imports: [
     BrowserModule,
