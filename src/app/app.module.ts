@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { SearchService } from './services/search.service';
-import { GetService } from './functions/get.service';
+import { GetService } from './services/get.service';
 import { MoviesComponent } from './views/movies/movies.component';
 import { MovieComponent } from './views/movies/movie/movie.component';
 import { PlanetsComponent } from './views/planets/planets.component';

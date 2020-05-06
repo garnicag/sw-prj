@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { SearchService } from '../../services/search.service';
-import { GetService } from '../../functions/get.service';
+import { GetService } from '../../services/get.service';
 
 @Component({
   selector: 'app-characters',
@@ -21,8 +21,8 @@ export class CharactersComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    // this.fetchAPIData();
-    this.charactersList = this.getService.allElements('people');
+    this.fetchAPIData();
+    // this.charactersList = this.searchService.allElements('people');
   }
 
   fetchAPIData(): void {
