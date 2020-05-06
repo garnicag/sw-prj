@@ -1,7 +1,14 @@
-Characters
+<div class="characters-result-wrapper">
+  <div class="characters-result" *ngFor="let character of charactersList" [ngClass]="{'active': character.name === selectedCharacter?.name}">
+    <a (click)="selectCharacter(character.name)">
+      <app-character title="{{character.name}}" url="{{character.url}}"></app-character>
+    </a>
+  </div>
+</div>
 
-<div class="movies-result" *ngFor="let character of charactersList">
-  <div>
-    {{character.name}} {{characterID(character.url)}}
+<div class="characters-details">
+  <h3>{{selectedCharacter?.name}}</h3>
+  <div class="inner">
+    <span><strong>Director: </strong>{{selectedCharacter?.name}}</span>
   </div>
 </div>
