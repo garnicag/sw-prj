@@ -14,8 +14,6 @@ export class SpeciesComponent implements OnInit{
   public selectedSpecie;
   public selectedSpecieHomeworld: Array<any> = [];
   public selectedSpeciePeople: Array<any> = [];
-  public selectedSpecieStarships: Array<any> = [];
-  public selectedSpecieVehicles: Array<any> = [];
   public selectedSpecieFilms: Array<any> = [];
   public id;
 
@@ -87,22 +85,6 @@ export class SpeciesComponent implements OnInit{
     this.searchService.getDetails('people', id).subscribe(
       result => {
         this.selectedSpeciePeople.push(result);
-      }
-    );
-  }
-
-  getVehicles(id): void {
-    this.searchService.getDetails('vehicles', id).subscribe(
-      result => {
-        this.selectedSpecieVehicles.push(result);
-      }
-    );
-  }
-
-  getStarships(id): void {
-    this.searchService.getDetails('starships', id).subscribe(
-      result => {
-        this.selectedSpecieStarships.push(result);
       }
     );
   }
