@@ -22,7 +22,6 @@ export class CharactersComponent implements OnInit {
 
   ngOnInit(): void {
     this.fetchAPIData();
-    // this.charactersList = this.searchService.allElements('people');
   }
 
   fetchAPIData(): void {
